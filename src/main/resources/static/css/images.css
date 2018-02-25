@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+body {   
+    background-attachment: fixed;  
+}  
+#images {  
+    width: 1200px;  
+    height: 500px;  
+    overflow: hidden;  
+    position: relative;
+	margin:auto ;
+     
+}  
+#images img {  
+    width: 1200px;  
+    height: 500px;  
+    position: absolute;  
+    top: 0;  
+    left: -400px;  
+    z-index: 1;  
+    opacity: 1; 
+    transition: all linear 500ms;  
+    -o-transition: all linear 500ms;  
+    -moz-transition: all linear 500ms;  
+    -webkit-transition: all linear 500ms;  
+}  
+#images img:target {  
+    left: 0;  
+    z-index: 9;  
+    opacity: 1;  
+}  
+#images img:first-child {  
+    left: 0;  
+}  
+#slider {  
+    width: 150px;  
+    height: 30px;  
+    margin: 20px auto;  
+}  
+#slider a {  
+    text-decoration: none;  
+    background: #45b97c;  
+    border: 1px solid #C6E4F2;  
+    padding: 4px 6px;  
+    color: #222;  
+    margin: 20px auto;  
+}  
+#slider a:hover {  
+    background: #C6E4F2;  
+}  

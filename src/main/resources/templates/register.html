@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ROS云教学平台</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body align="center" topmargin="100">
+	<p align="center">
+		<img src="/images/roslogo.png" />
+	</p>
+<head>请填写注册信息
+</head>
+<form aciton="#" th:action="@{/registerPost}" th:object="${user}"
+	method="post">
+	<p>
+		<input type="text" th:field="*{username}"
+			placeholder="请输入用户名/手机号/邮箱进行登录" style="height: 40px; width: 400px"
+			required="required" />
+	</p>
+	<p>
+		<input type="password" th:field="*{passwd}" placeholder="请输入密码"
+			style="height: 40px; width: 400px" required="required" />
+	</p>
+	<p>
+		<input type="password" th:field="*{second}" placeholder="请再输入密码"
+			style="height: 40px; width: 400px" required="required" />
+	</p>
+	<p>
+		<textarea name="protocol" cols="" rows=""
+			style="height: 40px; width: 400px">是否同意此协议？</textarea>
+	</p>
+	<p>
+		<input name="agreement" type="radio" value=" 我同意" required="required" />我同意<input
+			name="disagreement" type="radio" value="我不同意" />我不同意
+
+	</p>
+	<p>
+		<input type="submit" value="提交"
+			style="background: none; width: 100px; height: 40px; font-size: 20px;"
+			size="20" />
+	</p>
+
+</form>
+</body>
+</html>

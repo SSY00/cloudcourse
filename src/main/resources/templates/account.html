@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ROS云教学平台</title>
+<link href="/css/myhead.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+body, td, th {
+	font-size: 20px;
+}
+
+a:link {
+	color: #000;
+	text-decoration: none;
+	front-size: 30px;
+}
+
+a:visited {
+	color: #000;
+	text-decoration: none;
+	front-size: 30px;
+}
+
+a:hover {
+	color: #000000;
+	text-decoration: none;
+	front-size: 30px;
+}
+
+a:active {
+	color: #FFFFFF;
+	text-decoration: none;
+	front-size: 30px;
+}
+
+
+</style>
+</head>
+<body>
+	<div id="myhead">
+		<table width="1200" border="0" cellpadding="10" align="center"
+			background="/images/myback.png">
+			<tr style="font-size: 36px; color: #ffffff;">
+				<td><img src="/images/mylogo.png" />HRG AIRT-ROS</td>
+				<td><input type="text" placeholder="请输入你所要查询的信息"
+					style="height: 40px; width: 300px" /></td>
+				<td align="center" th:text="${username}"></td>
+			</tr>
+		</table>
+	</div>
+	<table width="1000" border="0" cellpadding="10" align="center"
+		cellspacing="10">
+		<tr>
+			<td align="center"><a href="/my">基础信息</a></td>
+			<td bgcolor="#F90" align="center"><a href="/account">账号安全</a></td>
+			<td><a href="/infosetting">通知设置</a></td>
+		</tr>
+	</table>
+	<p align="center">赶快增加你的账号安全吧!</p>
+
+	<table width="1200" border="0" cellspacing="0" cellpadding="10"
+		align="center">
+		<tr bgcolor="#fafafa">
+			<td align="right"><img src="/images/require.png" /></td>
+			<td><font size="30px" color="#f56004">验证邮箱</font></td>
+			<td align="center">可用于密码找回、接收通知等信息通知</td>
+			<td><input name="merge" type="button" value="收起"
+				style="background-color: #fafafa; size: 20; color: #169b33; border: #fafafa" /></td>
+		</tr>
+	</table>
+
+	<table width="800" border="0" cellspacing="10" cellpadding="10"
+		align="center">
+		<form aciton="#" th:action="@{/sendPost}" name="sendPost"
+			method="post">
+			<tr>
+				<td width="241" align="right">E-mail：</td>
+				<td width="427"><input type="email" name="email"
+					style="width: 400px; height: 60px" required="required" /></td>
+			</tr>
+			<!-- 
+		<tr>
+			<td width="241" align="right">验证码：</td>
+			<td width="427"><input type="text" name="checkCode"
+				style="width: 400px; height: 60px" /></td>
+		</tr>
+		 -->
+			<tr>
+				<td></td>
+				<td align="center"><input name="emailSubmit" type="submit"
+					value="发送邮箱验证"
+					style="width: 100px; height: 60px; background: #F90; border: medium; color: #ffffff;" /></td>
+			</tr>
+		</form>
+	</table>
+
+
+</body>
+</html>
+

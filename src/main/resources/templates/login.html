@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ROS云教学平台</title>
+<style type="text/css">
+a:link {
+	color: #00FF00;
+	text-decoration: none;
+	font-size: 20px
+}
+
+a:visited {
+	color: #000;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #000000;
+	text-decoration: none;
+}
+
+a:active {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body align="center" topmargin="100">
+	<p align="center">
+		<img src="/images/roslogo.png" />
+	</p>
+
+	<form action="/loginPost" name="loginfrom" accept-charset="utf-8"
+		method="post">
+
+		<table width="800" border="0" cellspacing="5" align="center"
+			cellpadding="10">
+			<tr>
+				<td width="200" align="right" style="font-size: 20px">用户名：</td>
+				<td width="545" align="left"><input type="text" id="username"
+					name="username" class="inputstyle" size="40"
+					style="height: 40px; width: 400px" required="required" /></td>
+			</tr>
+			<tr>
+				<td align="right" style="font-size: 20px">密码：</td>
+				<td align="left"><input type="password" id="passwd"
+					name="passwd" class="inputstyle" size="40"
+					style="height: 40px; width: 400px" required="required" /></td>
+			</tr>
+		</table>
+		<p align="center">
+			<input type="submit"
+				style="background: none; width: 100px; height: 40px; font-size: 20px;"
+				value="登录" /><a href="/register">注册</a>
+		</p>
+		<p align="center">
+			<input type="radio" name="auto" value="-1"/>不自动登录 <input
+				type="radio" name="auto" value="1"/>10天
+		</p>
+	</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<link rel="stylesheet" type="text/css" href="./lunboh5.css">
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+<script type="text/javascript"> var t = n = 0, count; $(document).ready(function() { // 获取图片标签长度 count = $("#banner_list a").length; // 不是当前显示的图片隐藏 $("#banner_list a:not(:first-child)").hide(); // 点击下面的1234按钮，切换图片 $("#banner li").click(function() { var i = $(this).text() - 1; n = i; if (i >= count) return; // 淡入淡出效果 $("#banner_list a").filter(":visible").fadeOut(500).parent().children().eq(i).fadeIn(1000); // 响应点击 $(this).toggleClass("on"); // 切换按钮的时候让上一个按钮回归原来的样式 $(this).siblings().removeAttr("class"); }); t = setInterval("showAuto()", 4000); $("#banner").hover(function() { clearInterval(t) }, function() { t = setInterval("showAuto()", 4000); }); }) // 自动轮播 function showAuto() { n = n >= (count - 1) ? 0 : ++n; $("#banner li").eq(n).trigger('click'); } </script>
+</head>
+<body>
+	<div id="banner">
+		<div id="banner_bg"></div>
+		<div id="banner_info"></div>
+		<ul>
+			<li class="on">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<div id="banner_list">
+			<a href="#" target="_blank">![jquery²å¼þ¿â1](http://upload-images.jianshu.io/upload_images/189984-6da57c46f1b3f07b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</a>
+			<a href="#" target="_blank">![jquery²å¼þ¿â2](http://upload-images.jianshu.io/upload_images/189984-16081592e7683537.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</a>
+			<a href="#" target="_blank">![jquery²å¼þ¿â3](http://upload-images.jianshu.io/upload_images/189984-149067ce98381b8f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</a>
+			<a href="#" target="_blank">![jquery²å¼þ¿â4](http://upload-images.jianshu.io/upload_images/189984-a44b79142dce57ad.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</a>
+		</div>
+	</div>
+</body>
+</html>

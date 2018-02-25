@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>AI&amp;RT-ROS学习推广平台</title>
+<link href="/css/alink.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+html,body{  
+	weight: 100%; 
+	font-size:24px;
+} 
+	.slider-outer{
+		width: 1200px;
+		height: 500px;
+		alignment-adjust:middle;
+		background-color: #ffffff;
+		position: relative;
+		margin:10px auto;
+	}
+	.img-item{
+		
+		position: absolute;
+		width: 1200px;
+		height: 500px;
+		background-color: #ffffff;
+		transition: all 1.0s;
+		/*设置子元素在3D空间中呈现*/
+		transform-style: preserve-3d;
+	}
+	/*让图片可以构成一个有四个面的长方体 start*/
+	.img{
+		width: 1200px;
+		height: 500px;
+		position: absolute;
+		background-size: cover;
+	}
+	.img:nth-child(1){
+		background: url(images/rosonline.png) no-repeat;
+		transform: rotateX(0deg) translateZ(150px);
+	}
+	.img:nth-child(2){
+		background: url(images/operator.png) no-repeat;
+		transform: rotateX(-90deg) translateZ(150px);
+	}
+	.img:nth-child(3){
+		background: url(images/developer.png) no-repeat;
+		transform: rotateX(-180deg) translateZ(150px);
+	}
+
+	/*让图片可以构成一个有四个面的长方体 end*/
+	.btns{
+		position: absolute;
+		top: 50%;
+		width: 100%;
+		height: 70px;
+		margin-top: -35px;
+	}
+	.prev,
+	.next{
+		width: 70px;
+		height: 70px;
+		line-height: 70px;
+		text-align: center;
+		background-color: rgba(0,0,0,.3);
+		color: #fff;
+		font-size: 30px;
+		cursor: pointer;
+		position: absolute;
+	}
+	.prev{
+		left: 0;
+	}
+	.next{
+		right: 0;
+	}
+</style>
+ <script src="/css/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	$(function (){
+		var num = 0;
+		$("#j_silder_outer .img-item").each(function(index, el) {
+			$(this).css({
+				"left":$(this).width() * index + "px",
+				/*让每个img-item延时一定时间执行动画*/
+				"transitionDelay": index * 0.1 + "s"
+			});
+			$(this).find(".img").css({
+				"backgroundPosition": -$(this).width() * index + "px"
+			});;
+		});
+
+		$(".prev").on("click",function (){
+			$("#j_silder_outer .img-item").css("transform", "rotateX(" + (++num * 90) + "deg)");
+		});
+
+		$(".next").on("click",function (){
+			$("#j_silder_outer .img-item").css("transform", "rotateX(" + (--num * 90) + "deg)");
+		});
+		
+		var timejg=4000;//轮播间隔时间
+		var time = setInterval(move,timejg);
+		function move(){
+			$("#j_silder_outer .img-item").css("transform", "rotateX(" + (--num * 90) + "deg)");
+		}
+		$('.slider-outer').hover(function(){
+			clearInterval(time);
+		},function(){
+			time = setInterval(move,timejg);
+		});
+
+
+	})
+</script>
+</head>
+
+<body>
+<table  width="100%" border="0" bgcolor="#000000">
+  <tr>
+    <td width="30%"><img src="images/logo.png" /></td>
+    <td width="8%"><a href="/course">在线课堂</a></td>
+    <td width="8%"><a href="/developer">开发者</a></td>
+    <td width="8%"><a href="operater">合作伙伴</a></td>
+    <td width="15%"><input name="" type="text" placeholder="请输入你要查询的内容" style="height:40px" /><input name="" type="submit" value="查询" style="height:50px; background-color:#000000; color:#FFFFFF"/></td>
+    <td width="5%"><a href="">社区</a></td>
+    <td width="10%"><a href="">关于我们</a></td>
+    <td width="5%"><a href="">登录</a></td>
+  </tr>
+</table>
+
+<div class="slider-outer" id="j_silder_outer" >
+	<div class="img-item" >
+		<div class="img"></div>
+		<div class="img"></div>
+		<div class="img"></div>
+		<div class="img"></div>
+	</div>
+	<div class="img-item" >
+		<div class="img"></div>
+		<div class="img"></div>
+		<div class="img"></div>
+		<div class="img"></div>
+	</div>
+	<div class="img-item" >
+		<div class="img"></div>
+		<div class="img"></div>
+		<div class="img"></div>
+		<div class="img"></div>
+	</div>
+	<div class="img-item" >
+		<div class="img"></div>
+		<div class="img"></div>
+		<div class="img"></div>
+		<div class="img"></div>
+	</div>
+	<div class="img-item" >
+		<div class="img"></div>
+		<div class="img"></div>
+		<div class="img"></div>
+		<div class="img"></div>
+	</div>
+	<div class="btns" data-num="0">
+		<div class="prev"></div>
+		<div class="next"></div>
+	</div>
+</div>
+
+<div style="text-align:center;clear:both">
+<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+<script src="/follow.js" type="text/javascript"></script>
+</div>
+<table width="1400" border="0" cellspacing="0" cellpadding="10" align="center">
+<tr align="center"  bgcolor="#f7f3f3">
+<td><img src="images/course.png" /></td>
+<td><img src="images/online.png" /></td>
+<td><img src="images/newer.png" /></td>
+<td><img src="images/compile.png" /></td>
+</tr>
+  <tr align="center">
+      <td><a href="/course"><img src="images/indexin.png" /></a></td>
+    <td>开启学习的重要一步</td>
+    <td>
+    根据课程实验在线链接你的实验室完成你的实验情况
+   </td>
+    <td>尝试一下个人在线编译，开启在线程序开发和管理</td>
+  </tr>
+  <tr align="center"  bgcolor="#f7f3f3">
+<td><img src="images/telnet.png" /></td>
+<td><img src="images/kaoshi.png" /></td>
+<td><img src="images/development.png" /></td>
+<td><img src="images/share.png" /></td>
+</tr>
+  <tr align="center">
+      <td>远程实验。。。。开启你的人生</td>
+    <td>验证你的学习第一步</td>
+    <td align="center">
+   <a href="/carrer"><img src="images/cardevelop.png"></img></a>
+   </td>
+    <td>探索你未知的领域</td>
+  </tr>
+</table>
+<p align="center" >全球领先机器人操作系统与人工智能服务！</p>
+<table width="1400" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td>常用链接</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><a href=""><img src="images/teaching.png" /></a></td>
+    <td><a href="/commodity"><font color="#000000">商品展示</font></a></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+</body>
+</html>

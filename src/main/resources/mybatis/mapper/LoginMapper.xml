@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ros.dao.LoginDao">
+
+	<select id="getUser" parameterType="java.lang.Integer"
+		resultType="com.ros.entity.User">
+		select * from ros_user where id=#{id}
+	</select>
+	<select id="getUserId" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		select id from ros_user where username=#{username}
+	</select>
+	<insert id="addUser" useGeneratedKeys="true" keyProperty="id"
+		parameterType="com.ros.entity.User">
+		insert into ros_user (username,passwd) values
+		(#{username},#{passwd})
+	</insert>
+	<select id="getUserType" parameterType="java.lang.Integer"
+		resultType="java.lang.Integer">
+		select type from ros_user where id=#{id}
+	</select>
+	<select id="getInterests" resultType="java.lang.String">
+		select name from
+		ros_interest
+	</select>
+	<!-- resultMap：resultMap的id ，bookName：resultMap的property，即实体类中的属性 -->
+	<update id="modifyBasicInfo" parameterType="com.ros.entity.User">
+		update ros_user set
+		ros_user.sex=#{sex},ros_user.born_time=#{bornTime},ros_user.carrer=#{carrer},
+		ros_user.education=#{education},ros_user.school_name=#{schoolName},ros_user.user_sign=#{userSign},
+		ros_user.province=#{province},ros_user.city=#{city},ros_user.country=#{country},ros_user.note=#{note}
+		where id=#{id}
+	</update>
+	<update id="modifyAccount">
+		update ros_user set
+		ros_user.tel=${tel},ros_user.wechat=#{wechat},ros_user.qq=#{qq},ros_user.email=#{email}
+		where id=#{id}
+	</update>
+</mapper>

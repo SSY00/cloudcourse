@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ROS云教学平台</title>
+<link href="myhead.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/myaddress.js"></script>
+<style type="text/css">
+a:link {
+	color: #000;
+	text-decoration: none;
+	front-size: 30px;
+}
+
+a:visited {
+	color: #000;
+	text-decoration: none;
+	front-size: 30px;
+}
+
+a:hover {
+	color: #000000;
+	text-decoration: none;
+	front-size: 30px;
+}
+
+a:active {
+	color: #FFFFFF;
+	text-decoration: none;
+	front-size: 30px;
+}
+</style>
+</head>
+<body>
+	<div id="myhead">
+		<table width="1200" border="0" cellpadding="10" align="center"
+			background="/images/myback.png">
+			<tr style="font-size: 36px; color: #ffffff;">
+				<td><img src="/images/mylogo.png" />HRG AIRT-ROS</td>
+				<td><input type="text" placeholder="请输入你所要查询的信息"
+					style="height: 40px; width: 300px" /></td>
+				<td align="center" th:text="${username}"></td>
+			</tr>
+		</table>
+	</div>
+	<table width="1000" border="0" cellpadding="10" align="center"
+		cellspacing="10">
+		<tr>
+			<td bgcolor="#169b33" align="center"><a href="/my">基础信息</a></td>
+			<td><a href="/account">账号安全</a></td>
+			<td><a href="/infosetting">通知设置</a></td>
+		</tr>
+	</table>
+	<p align="center">完善资料是让别人认识你的第一步!</p>
+	<form aciton="#" th:action="@{/myPost}" name="myPost"
+		method="post">
+		<table width="1000" border="0" cellpadding="10" cellspacing="10"
+			align="center">
+			<tr>
+				<td align="center">性别</td>
+				<td bgcolor="#fafafa"><select id="sex" name="sex"
+					style="height: 40px; width: 95px;">
+						<option value="0">男</option>
+						<option value="1">女</option>
+						<option value="2">保密</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td align="center">出生日期</td>
+				<td bgcolor="#fafafa"><input id="bornTime" name="bornTime" type="date" value="2014-01-13"
+					required="required" /></td>
+				<td>日期格式18/2/5</td>
+			</tr>
+			<tr>
+				<td align="center">职业</td>
+				<td bgcolor="#fafafa"><input type="text" id="carrer" name="carrer"
+					style="height: 40px; width: 400px" required="required" /></td>
+			</tr>
+			<tr>
+				<td align="center">最高学历</td>
+				<td bgcolor="#fafafa"><select id="education" name="education"
+					style="height: 40px; width: 95px;">
+						<option>小学</option>
+						<option>初中</option>
+						<option>高中</option>
+						<option>学士</option>
+						<option>硕士</option>
+						<option>博士</option>
+						<option>博士后</option>
+				</select> <input type="text" id="schoolName" name="schoolName"
+					placeholder="请输入你毕业的学校" style="height: 40px; width: 300px"
+					required="required" /></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td align="center">上传头像</td>
+				<td><img src="/images/loginHead.png"
+					style="height: 32px; width: 32px" /></td>
+				<td style="font-size: 14px">支持jpg、gif、png或bmp格式的图片，建议文件小于20M
+					修改头像s</td>
+			</tr>
+			<tr>
+				<td align="center">个性签名</td>
+				<td bgcolor="#fafafa"><input type="text" id="userSign" name="userSign"
+					style="height: 40px; width: 400px" required="required" /></td>
+				<td style="font-size: 14px">请在0-60字以内</td>
+			</tr>
+			<tr>
+				<td align="center">现住地址</td>
+				<td bgcolor="#fafafa"><select id="cmbProvince"
+					name="cmbProvince" style="height: 40px; width: 95px"></select> <select
+					id="cmbCity" name="cmbCity" style="height: 40px; width: 95px"></select>
+					<select id="cmbArea" name="cmbArea"
+					style="height: 40px; width: 95px"></select></td>
+				<td><input type="text" id="country" name="country"
+					placeholder="请出入详细的地址" style="height: 40px; width: 200px" /></td>
+			</tr>
+			<tr>
+				<td align="center">备注</td>
+				<td bgcolor="#fafafa"><textarea id="note" name="note" cols="" rows=""
+						style="width: 400px"></textarea></td>
+				<td style="font-size: 14px">请限制字数在0-100之间，格式为：运动，读书.....</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" alue="保存"
+					style="background: none; width: 200px; height: 40px; font-size: 20px;"
+					size="20" /></td>
+				<td></td>
+			</tr>
+		</table>
+	</form>
+	<script type="text/javascript">
+		addressInit('cmbProvince', 'cmbCity', 'cmbArea');
+	</script>
+</body>
+</html>
